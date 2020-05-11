@@ -13,5 +13,8 @@ def get_template():
     return json.dumps(app.synth().get_stack(stack_name).template)
 
 
-def test_sns_topic_created():
-    assert("AWS::SNS::Topic" in get_template())
+def test_sns_tpic_not_created():
+    assert(not("AWS::SNS::Topic" in get_template()))
+
+def test_sns_subscription_created():
+    assert("AWS::SNS::Subscription" in get_template())

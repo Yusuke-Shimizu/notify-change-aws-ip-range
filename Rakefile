@@ -8,8 +8,21 @@ namespace :tool do
 
     desc 'Task description'
     task :pip do
+        sh 'pip list | grep cdk'
         sh 'pip install -r requirements.txt'
         sh 'pip install --upgrade pip'
+    end
+
+    desc 'update cdk'
+    task :cdk do
+        sh 'cdk --version'
+        sh 'npm list -g | grep cdk'
+        sh 'npm update -g cdk'
+        sh 'cdk --version'
+        sh 'npm list -g | grep cdk'
+        sh 'pip list | grep cdk'
+        sh 'pip install --upgrade aws-cdk.core'
+        sh 'pip list | grep cdk'
     end
 end
 

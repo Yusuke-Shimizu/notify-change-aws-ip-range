@@ -6,6 +6,6 @@ from notify_change_aws_ip_range.notify_change_aws_ip_range_stack import NotifyCh
 
 
 app = core.App()
-NotifyChangeAwsIpRangeStack(app, "notify-change-aws-ip-range")
+NotifyChangeAwsIpRangeStack(app, "notify-change-aws-ip-range", env={'region': 'us-east-1'})
 
 app.synth()
